@@ -1,0 +1,2 @@
+⍝ Geometric mean
+mean_geom ← {(×⌿⍵)*÷≢⍵}

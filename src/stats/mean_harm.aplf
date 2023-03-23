@@ -1,0 +1,2 @@
+⍝ Harmonic mean
+mean_harm ← {(≢⍵)×(+⌿÷⍵)*¯1}

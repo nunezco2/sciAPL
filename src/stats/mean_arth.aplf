@@ -1,0 +1,2 @@
+⍝ Arithmetic mean
+mean_arth ← {(+⌿⍵)÷≢⍵}
