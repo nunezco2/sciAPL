@@ -1,0 +1,2 @@
+⍝ Higher sample moments
+nth_moment ← {(+/(⍵ - mean_arth ⍵*⍺))÷⍴⍵}
