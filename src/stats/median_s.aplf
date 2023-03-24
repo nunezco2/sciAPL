@@ -1,0 +1,10 @@
+⍝ Sample median
+median_s ← {
+    len ← ⍴⍵
+    sorted ← ⍵[⍋⍵]
+    ⍝ Case 1: odd number of values 
+    (2|len) = 1: sorted[1 + (len - 1)÷2]
+    ⍝ Case 2: even number of values
+    mh ← ⌈(len÷2)
+    (+/sorted[mh, mh+1])÷2
+}

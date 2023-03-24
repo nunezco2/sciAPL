@@ -1,0 +1,2 @@
+⍝ Sample mean deviation
+md_s ← {(+/|⍵ - mean_arth ⍵)÷⍴⍵}
