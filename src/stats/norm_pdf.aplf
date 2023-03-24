@@ -1,0 +1,7 @@
+⍝ PDF of the normal distribution
+⍝ 
+⍝ ⍺: mean and standard deviation
+⍝ ⍵: integration variable
+norm_pdf ← {
+    (*¯0.5×(⍵-⍺[1])*2÷⍺[2]*2)÷((2×(○ 1)×⍺[2]*2)*0.5)
+}

@@ -1,0 +1,15 @@
+⍝ Integrate naively a function over a given range
+⍝
+⍝ ⍺: additional function parameters
+⍝ ⍺⍺: function to integrate
+⍝ ⍵: range (a, b, N), where N is the number of samples for
+⍝    Riemann integration
+_Integrate_naive_ ← {
+    ⍺ ← ⍬
+    a ← ⍵[1]
+    b ← ⍵[2]
+    N ← ⍵[3]
+    ds ← (b - a)÷N
+    s ← a + ds×(0,⍳N-1)
+    +/ds×(⍺ ⍺⍺ s)
+}

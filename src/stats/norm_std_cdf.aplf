@@ -1,0 +1,10 @@
+⍝ CDF of the normal standard distribution
+⍝ 
+⍝ ⍺: mean and standard deviation
+⍝ ⍵: integration variable
+norm_std_cdf ← {
+    LLIM ← ¯40
+    ⍝ Integrate up to 5 significant figures
+    SF5 ← 1000000
+    (norm_std_pdf)_Integrate_naive_ (LLIM ⍵ SF5)
+}

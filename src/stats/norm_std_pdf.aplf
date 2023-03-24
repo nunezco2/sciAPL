@@ -1,0 +1,6 @@
+⍝ PDF of the standard normal distribution
+⍝ 
+⍝ ⍵: integration variable
+norm_std_pdf ← {
+    (0 1) norm_pdf ⍵
+}
