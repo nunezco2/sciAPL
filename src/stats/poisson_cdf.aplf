@@ -1,0 +1,7 @@
+⍝ CDF for the Poisson distribution
+⍝
+⍝ Ensures the lower bound is respected
+poisson_cdf ← {
+    ⍵<0: ⎕SIGNAL 11
+    +⍀⍺ poisson_pmf 0,⍳⍵
+}

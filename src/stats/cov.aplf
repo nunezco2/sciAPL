@@ -1,0 +1,2 @@
+⍝ Covariance
+cov ← {((⍺ +.× ⍵)÷⍴⍵) - (mean_arth ⍺)×(mean_arth ⍵)}

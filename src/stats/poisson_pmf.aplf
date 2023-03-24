@@ -1,0 +1,8 @@
+⍝ PMF for the Poisson distribution
+⍝ 
+⍝ Ensure the function is vectorized and no negative values
+⍝ can arise.
+poisson_pmf ← {
+    ⍺ ≤ 0: ⎕SIGNAL 11
+    (⍺*⍵)×(*-⍺)÷(!⍵)
+}

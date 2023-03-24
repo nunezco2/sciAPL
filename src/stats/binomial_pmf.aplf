@@ -1,0 +1,9 @@
+⍝ PMF for the binomial distribution
+⍝ 
+⍝ ⍺ contains the pair (N, p), and ⍵ the varying element.
+⍝ Ensure the function is vectorized and no negative values
+⍝ can arise.
+binomial_pmf ← {
+    ∨/⍵ < 0: ⎕SIGNAL 11
+    (⍵!⍺[1])×(⍺[2]*⍵)×((1 - ⍺[2])*(⍺[1] - ⍵))
+}

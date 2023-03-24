@@ -1,0 +1,7 @@
+⍝ CDF for the binomial distribution
+⍝
+⍝ Ensures the lower and top bounds are respected
+binomial_cdf ← {
+    (⍵<0)∨(⍵>⍺[1]): ⎕SIGNAL 11
+    +⍀⍺ binomial_pmf 0,⍳⍵
+}
