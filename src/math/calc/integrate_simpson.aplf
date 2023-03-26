@@ -1,0 +1,21 @@
+⍝ Integrate a function over a given range using Simpson's method
+⍝
+⍝ ⍺: additional function parameters
+⍝ ⍺⍺: function to integrate
+⍝ ⍵: range (a, b, N), where N is the number of samples
+_Integrate_Simpson_ ← {
+    ⍺ ← ⍬
+    a ← ⍵[1]
+    b ← ⍵[2]
+    N ← ⍵[3]
+    ⍝ Ensure N is even
+    1=2|N: ⎕SIGNAL 11
+    ⍝ Otherwise, compute Simpson's rule using the stencil operator
+    ds ← (b - a)÷N
+    s ← a + ds×(0,⍳N-1)
+    ⍝ Define an inner function that computes Simpson's rule:
+    ⍝ dX×(X[i] + X[i+1] + X[i+2])/3
+    ⍝ Note that ⍺ = dX
+    simpson_rule ← {⍺×(⍵[1] + (4×⍵[2]) + ⍵[3])÷3}
+    +/(ds simpson_rule¨ ({⊂⍵}⌺3)s)
+}
