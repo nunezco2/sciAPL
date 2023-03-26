@@ -16,6 +16,7 @@ _Integrate_Simpson_ ← {
     ⍝ Define an inner function that computes Simpson's rule:
     ⍝ dX×(X[i] + X[i+1] + X[i+2])/3
     ⍝ Note that ⍺ = dX
-    simpson_rule ← {⍺×(⍵[1] + (4×⍵[2]) + ⍵[3])÷3}
-    +/(ds simpson_rule¨ ({⊂⍵}⌺3)s)
+    simpson_rule ← {⍺×((⍺⍺ ⍵[1]) + (4×(⍺⍺ ⍵[2])) + (⍺⍺ ⍵[3]))÷3}
+    ⍝ Divide by two to remove double counting
+    0.5 × +/(ds ⍺⍺ simpson_rule¨({⊂⍵}⌺3)s)
 }
