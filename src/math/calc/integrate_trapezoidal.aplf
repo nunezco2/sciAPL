@@ -1,0 +1,19 @@
+⍝ Integrate a function over a given range using the trapezoidal rule
+⍝
+⍝ ⍺: additional function parameters
+⍝ ⍺⍺: function to integrate
+⍝ ⍵: range (a, b, N), where N is the number of samples
+_Integrate_trapezoidal_ ← {
+    ⍺ ← ⍬
+    a ← ⍵[1]
+    b ← ⍵[2]
+    N ← ⍵[3]
+    ds ← (b - a)÷N
+    s ← a + ds×(0,⍳N-1)
+    ⍝ Define an inner function that computes the trapezoidal rule:
+    ⍝ dX×(X[i] + X[i+1])/2
+    ⍝ Note that ⍺ = dX
+    trapezoidal_rule ← {⍺×((⍺⍺ ⍵[1]) + (⍺⍺ ⍵[2]))÷2}
+    ⍝ Divide by two to remove double counting
+    +/(ds ⍺⍺ trapezoidal_rule¨({⊂⍵}⌺2)s)
+}
