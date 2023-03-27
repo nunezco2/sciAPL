@@ -1,0 +1,8 @@
+⍝ Compute the amount of current material based on original amount of radioactive matter
+⍝ and elapsed time
+⍝
+⍝ ⍺: half life time
+⍝ ⍵: original amounts of matter and elapsed time
+hlife_current ← {
+    ⍵[1]×(0.5*⍵[2]÷⍺)
+}

@@ -1,0 +1,7 @@
+⍝ Compute the age of an object using its current and past amount of radioactive matter
+⍝
+⍝ ⍺: half life time
+⍝ ⍵: original and current amounts of matter
+hlife_time ← {
+    -1×⍺×(2⍟⍵[2]÷⍵[1])
+}
