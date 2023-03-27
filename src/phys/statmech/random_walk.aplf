@@ -1,0 +1,33 @@
+⍝ Implementation of a discrete random walk in D dimensions
+⍝
+⍝ ⍺: stochastic probability matrix for D-dimensions and 3 states (<-, o, ->)
+⍝ ⍵: starting position and number of steps
+⍝
+⍝ Each row of the stochastic matrix 
+random_walk←{
+    sm←⍺
+    start ← ⍵[1]
+    steps ← ⍵[2]
+
+    ⍝ Determine if we reached the end of the simulation
+    0=steps: start
+
+    ⍝ Otherwise, perform a recursive step
+
+    ⍝ Internal function that chooses the value to add to a dimension based on the
+    ⍝ result of a random sampling.
+    move_with ← {(¯1 0 1)[⍵]}
+
+    ⍝ Generate a vector of random values with the right number of dimensions (rows)
+    rand ← ?(1⌷⍴sm)⍴0
+
+    ⍝ Use that vector to choose from a 3-roulette based on the stochastic matrix
+    ⍝ per dimension.
+    roulette ← 1++/~rand(>⍨⍤0 1)(+\⍺)
+
+    ⍝ Update the state
+    next← (⊃start) + move_with roulette
+
+     ⍝ Perform the recursive call
+    (⍬, start),(⍺ ∇ (next) (steps-1) )
+}
