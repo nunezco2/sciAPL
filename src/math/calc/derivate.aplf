@@ -1,0 +1,12 @@
+⍝ 1D derivative
+⍝
+⍝ ⍺⍺: function to derivate
+⍝ ⍵: vector alongwhich to integrate
+_derivate_←{
+    ⍝ Find the finite difference
+    h←|-/2↑⍵
+    ⍝ Extended
+    x←(⍵[1]-h),⍵,⍵[⍴⍵]+h
+    ⍝ Apply an accurate central difference method
+    1↓¯1↓({⍵+.×(¯1 8 ¯8 1)}¨(,({⊂⌽⍵}⌺4)⍺⍺ x))÷(5×h)
+}
